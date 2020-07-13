@@ -5,12 +5,17 @@ const autoprefixer = require('autoprefixer');
 module.exports = {
   output: {
     path: path.resolve('build'),
-    publicPath: '/'
+    publicPath: './'
   },
   resolve: {
     alias: {
+      api: path.resolve('src', 'api'),
       pages: path.resolve('src', 'pages'),
       components: path.resolve('src', 'components'),
+      constants: path.resolve('src', 'constants'),
+      icons: path.resolve('src', 'assets', 'icons'),
+      models: path.resolve('src', 'models'),
+      hooks: path.resolve('src', 'hooks'),
     },
     modules: ['node_modules'],
   },
@@ -32,7 +37,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.css$/,
+        test: /\.(css|styl)$/,
         use: [
           'style-loader',
           {
@@ -49,17 +54,24 @@ module.exports = {
             options: {
               plugins: () => [autoprefixer({ remove: false })]
             }
+          },
+          {
+            loader: "stylus-loader",
           }
         ]
       },
       {
-        test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+        test: /\.(png|woff|woff2|eot|ttf)$/,
         use: [
           {
             loader: 'url-loader'
           }
         ]
-      }
+      },
+      {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+      },
     ]
   },
   plugins: [
@@ -70,5 +82,6 @@ module.exports = {
   ],
   devServer: {
     historyApiFallback: true,
+    hot: true,
   },
 };

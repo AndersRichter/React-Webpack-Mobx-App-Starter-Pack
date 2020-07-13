@@ -1,16 +1,18 @@
 import React from "react";
-import { createBrowserHistory } from "history";
-import { Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
 
-import StartPage from "./pages/StartPage";
+import { routes } from "constants/routes";
 
-const history = createBrowserHistory();
+import StartPage from "pages/StartPage";
+import SecondPage from "pages/SecondPage";
 
 const AppRouter = () => {
   return (
-    <Router history={ history }>
+    <Router>
       <Switch>
-        <Route path='/' component={ StartPage } />
+        <Route exact path={ routes.start } component={ StartPage } />
+        <Route path={ routes.second } component={ SecondPage } />
+        <Redirect to={ routes.start } />
       </Switch>
     </Router>
   );

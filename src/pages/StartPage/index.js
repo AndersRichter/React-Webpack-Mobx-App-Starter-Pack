@@ -1,12 +1,12 @@
 import React from 'react';
 
-import Form from "components/Form";
+import SimpleComponent from "components/SimpleComponent";
 
 const StartPage = () => {
   return (
     <div>
-      StartPage
-      <Form />
+      <h2>Start Page</h2>
+      <SimpleComponent text="props text" />
     </div>
   )
 };
