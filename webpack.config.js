@@ -3,9 +3,12 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const autoprefixer = require('autoprefixer');
 
 module.exports = {
+  entry: {
+    app: './src/index.js',
+  },
   output: {
     path: path.resolve('build'),
-    publicPath: './'
+    filename: '[name].bundle.js',
   },
   resolve: {
     alias: {
