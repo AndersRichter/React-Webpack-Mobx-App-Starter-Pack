@@ -19,6 +19,8 @@ module.exports = {
       icons: path.resolve('src', 'assets', 'icons'),
       models: path.resolve('src', 'models'),
       hooks: path.resolve('src', 'hooks'),
+      styles: path.resolve('src', 'styles'),
+      assets: path.resolve('src', 'assets'),
     },
     modules: ['node_modules'],
   },

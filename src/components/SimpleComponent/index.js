@@ -20,7 +20,7 @@ const SimpleComponent = (props) => {
   };
 
   return (
-    <div>
+    <div className={ s.component }>
       SimpleComponent { text }
       <button onClick={ handleClickButton }>Go to Second Page</button>
       <Cross className={ s.cross } />
